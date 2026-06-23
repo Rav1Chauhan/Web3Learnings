@@ -6,5 +6,13 @@
         "file": "events.sol"
       }
     }
+  },
+  "Inheritance.sol": {
+    "__sources__": {
+      "Inheritance.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\n// Parent Contract\r\ncontract Animal {\r\n    string public species = \"Animal\";\r\n\r\n    function makeSound() public pure virtual returns(string memory) {\r\n        return \"Some Sound\";\r\n    }\r\n}\r\n\r\n// Child Contract\r\ncontract Dog is Animal {\r\n\r\n    function makeSound() public pure override returns(string memory) {\r\n        return \"Bark\";\r\n    }\r\n\r\n    function getSpecies() public view returns(string memory) {\r\n        return species;\r\n    }\r\n}\r\n\r\ncontract sound is Dog {\r\n\r\n    function Sound() public pure returns(string memory) {\r\n        return string(abi.encodePacked(super.makeSound()));\r\n    }\r\n}",
+        "file": "Inheritance.sol"
+      }
+    }
   }
 }
