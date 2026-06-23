@@ -1,0 +1,10 @@
+{
+  "events.sol": {
+    "__sources__": {
+      "events.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ncontract Voting {\r\n\r\n    event VoteCast(\r\n        address indexed voter,\r\n        string candidate\r\n    );\r\n\r\n    function vote(\r\n        string memory _candidate\r\n    ) public {\r\n\r\n        emit VoteCast(\r\n            msg.sender,\r\n            _candidate\r\n        );\r\n    }\r\n}",
+        "file": "events.sol"
+      }
+    }
+  }
+}
