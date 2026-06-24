@@ -14,5 +14,13 @@
         "file": "Inheritance.sol"
       }
     }
+  },
+  "multipleInheritance.sol": {
+    "__sources__": {
+      "multipleInheritance.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ncontract Ownable {\r\n    address public owner;\r\n\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n}\r\n\r\ncontract Pausable {\r\n    bool public paused;\r\n}\r\n\r\ncontract MyToken is Ownable, Pausable {\r\n\r\n    function getStatus()\r\n        public\r\n        view\r\n        returns(address, bool)\r\n    {\r\n        return (owner, paused);\r\n    }\r\n}",
+        "file": "multipleInheritance.sol"
+      }
+    }
   }
 }
