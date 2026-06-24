@@ -15,11 +15,27 @@
       }
     }
   },
+  "overriding.sol": {
+    "__sources__": {
+      "overriding.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ncontract Bank {\r\n\r\n    uint public balance;\r\n\r\n    function deposit(uint amount)\r\n        public\r\n        virtual\r\n    {\r\n        balance += amount;\r\n    }\r\n}\r\n\r\ncontract PremiumBank is Bank {\r\n\r\n    function deposit(uint amount)\r\n        public\r\n        override\r\n    {\r\n        balance += amount + 10;\r\n    }\r\n}",
+        "file": "overriding.sol"
+      }
+    }
+  },
   "multipleInheritance.sol": {
     "__sources__": {
       "multipleInheritance.sol": {
         "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ncontract Ownable {\r\n    address public owner;\r\n\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n}\r\n\r\ncontract Pausable {\r\n    bool public paused;\r\n}\r\n\r\ncontract MyToken is Ownable, Pausable {\r\n\r\n    function getStatus()\r\n        public\r\n        view\r\n        returns(address, bool)\r\n    {\r\n        return (owner, paused);\r\n    }\r\n}",
         "file": "multipleInheritance.sol"
+      }
+    }
+  },
+  "Overriding.sol": {
+    "__sources__": {
+      "Overriding.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ncontract Bank {\r\n\r\n    uint public balance;\r\n\r\n    function deposit(uint amount)\r\n        public\r\n        virtual\r\n    {\r\n        balance += amount;\r\n    }\r\n}\r\n\r\ncontract PremiumBank is Bank {\r\n\r\n    function deposit(uint amount)\r\n        public\r\n        override\r\n    {\r\n        balance += amount + 10;\r\n    }\r\n}",
+        "file": "Overriding.sol"
       }
     }
   }
