@@ -38,5 +38,13 @@
         "file": "Overriding.sol"
       }
     }
+  },
+  "Require.sol": {
+    "__sources__": {
+      "Require.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ncontract Wallet {\r\n\r\n    mapping(address => uint256) public balance;\r\n\r\n    function deposit() public payable {\r\n        balance[msg.sender] += msg.value;\r\n    }\r\n\r\n    function withdraw(uint256 amount) public {\r\n        require(balance[msg.sender] >= amount, \"Insufficient balance\");\r\n\r\n        balance[msg.sender] -= amount;\r\n\r\n        (bool success, ) = payable(msg.sender).call{value: amount}(\"\");\r\n        require(success, \"Transfer failed\");\r\n    }\r\n}",
+        "file": "Require.sol"
+      }
+    }
   }
 }
