@@ -46,5 +46,13 @@
         "file": "Require.sol"
       }
     }
+  },
+  "RevertAndAssert.sol": {
+    "__sources__": {
+      "RevertAndAssert.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ncontract SimpleVault {\r\n\r\n    error InsufficientBalance(uint256 requested, uint256 available);\r\n\r\n    uint256 public totalBalance;\r\n\r\n    mapping(address => uint256) public balances;\r\n\r\n    function deposit() external payable {\r\n        balances[msg.sender] += msg.value;\r\n        totalBalance += msg.value;\r\n\r\n        // Internal invariant: total balance should always match contract balance\r\n        assert(totalBalance == address(this).balance);\r\n    }\r\n\r\n    function withdraw(uint256 amount) external payable  {\r\n\r\n    if (balances[msg.sender] < amount) {\r\n        revert InsufficientBalance(amount, balances[msg.sender]);\r\n    }\r\n\r\n    balances[msg.sender] -= amount;\r\n    totalBalance -= amount;\r\n\r\n    (bool success, ) = payable(msg.sender).call{value: amount}(\"\");\r\n    require(success, \"Transfer failed\");\r\n\r\n    // Internal invariant: accounting should always match contract balance\r\n    assert(totalBalance == address(this).balance);\r\n}\r\n}",
+        "file": "RevertAndAssert.sol"
+      }
+    }
   }
 }
