@@ -6,71 +6,72 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "requested",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "available",
-						"type": "uint256"
-					}
-				],
-				"name": "InsufficientBalance",
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "ContractPaused",
 				"type": "error"
 			},
 			{
-				"inputs": [
+				"inputs": [],
+				"name": "NotOwner",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "buyProduct",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
 					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
 				],
-				"name": "balances",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "deposit",
+				"name": "pause",
 				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "totalBalance",
+				"name": "paused",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "bool",
 						"name": "",
-						"type": "uint256"
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
+				"inputs": [],
+				"name": "unpause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "withdraw",
 				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -87,7 +88,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"RevertAndAssert.sol": "SimpleVault"
+			"modifier.sol": "OnlineStoreVault"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -101,12 +102,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"RevertAndAssert.sol": {
-			"keccak256": "0x0e70ad59883b226369964dd3bf327d6f1650093b73ec0a92491e5a68b954459f",
+		"modifier.sol": {
+			"keccak256": "0xb23f33aaf8f64bc2c21d6feb3c6c105c54e68f8b3bb11493a6c08dc597bdd65c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://43ffd097d444ef442f1e31e08a374111c6624dcd46debf7a56ba1cfe444483b4",
-				"dweb:/ipfs/QmYn1iyCtmTvSptrw1kz9oDY6odh8KDuUk1zikbtB9zRgJ"
+				"bzz-raw://805e04f2c1def0fa839d61644fccfeeb2b002854c586f4ccf2dc8c518fd86983",
+				"dweb:/ipfs/QmSDA1ujNxC8kMnQvUCKuZEvVHtkRiieThwRE85x3apMH7"
 			]
 		}
 	},
