@@ -6,11 +6,27 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
-				"name": "deposit",
-				"outputs": [],
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "donor",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "DonationReceived",
+				"type": "event"
+			},
+			{
 				"stateMutability": "payable",
-				"type": "function"
+				"type": "fallback"
 			},
 			{
 				"inputs": [],
@@ -26,11 +42,8 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "withdraw",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
+				"stateMutability": "payable",
+				"type": "receive"
 			}
 		],
 		"devdoc": {
@@ -46,7 +59,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Payable.sol": "PiggyBank"
+			"FallbackAndReceive.sol": "Donation"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -60,12 +73,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Payable.sol": {
-			"keccak256": "0xbd7dc8297d698bf0d7e9437e3e4a8a1405492f25175d5ebf1d08bb28a94e0b08",
+		"FallbackAndReceive.sol": {
+			"keccak256": "0x802988bf29618b2dc2ba01e4bcab9786f8182d58c3243153308c5e090ee8b3fc",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b6fd27e373713e3a7df9397e04659c9e419c5db01d5fc9de108589b9e197d2ee",
-				"dweb:/ipfs/QmeFkRhmPvsKr8SqQGyRWgj7Efdi1sA3yFsuMJrTo9fcHq"
+				"bzz-raw://510c07834e26f649bfeb248df2c56968fcedacab84e675edae190be797b6b61e",
+				"dweb:/ipfs/QmUPTyw4ibP7mpnqri3RkCZnFr4b6cLeBFKQped1jTFx3n"
 			]
 		}
 	},

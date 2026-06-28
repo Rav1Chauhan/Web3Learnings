@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 contract PiggyBank {
-
     function deposit() public payable {}
 
     function getBalance() public view returns (uint) {
