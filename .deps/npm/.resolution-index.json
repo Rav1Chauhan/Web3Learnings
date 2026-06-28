@@ -62,5 +62,13 @@
         "file": "modifier.sol"
       }
     }
+  },
+  "Payable.sol": {
+    "__sources__": {
+      "Payable.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ncontract PiggyBank {\r\n\r\n    function deposit() public payable {}\r\n\r\n    function getBalance() public view returns (uint) {\r\n        return address(this).balance;\r\n    }\r\n\r\n    function withdraw() public {\r\n        address payable user = payable(msg.sender);\r\n\r\n        uint amount = address(this).balance;\r\n\r\n        (bool success, ) = user.call{value: amount}(\"\");\r\n        require(success, \"Transfer failed\");\r\n    }\r\n}",
+        "file": "Payable.sol"
+      }
+    }
   }
 }
