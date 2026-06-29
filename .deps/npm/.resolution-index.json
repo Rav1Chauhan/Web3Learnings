@@ -78,5 +78,13 @@
         "file": "FallbackAndReceive.sol"
       }
     }
+  },
+  "sendEther.sol": {
+    "__sources__": {
+      "sendEther.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ncontract Marketplace {\r\n\r\n    struct Order {\r\n        address payable seller;\r\n        uint256 price;\r\n        bool delivered;\r\n    }\r\n\r\n    mapping(uint256 => Order) public orders;\r\n\r\n    // Seller lists a product\r\n    function createOrder(uint256 orderId, uint256 price) external {\r\n        orders[orderId] = Order(payable(msg.sender), price, false);\r\n    }\r\n\r\n    // Buyer pays for the order\r\n    function buyProduct(uint256 orderId) external payable {\r\n        Order storage order = orders[orderId];\r\n\r\n        require(msg.value == order.price, \"Incorrect payment\");\r\n        require(!order.delivered, \"Already completed\");\r\n\r\n        // Mark as delivered before external call\r\n        order.delivered = true;\r\n\r\n        // Send Ether to the seller\r\n        (bool success, ) = order.seller.call{value: msg.value}(\"\");\r\n\r\n        require(success, \"Payment to seller failed\");\r\n    }\r\n}",
+        "file": "sendEther.sol"
+      }
+    }
   }
 }
