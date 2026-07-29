@@ -1,0 +1,10 @@
+{
+  "Mytoken.sol": {
+    "__sources__": {
+      "Mytoken.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ncontract RaviCoin {\n    address public owner;\n    uint public totalsupply;\n    mapping(address => uint) balances;\n    constructor() {\n        owner = msg.sender;\n    }\n\n    modifier OnlySender() {\n        require(msg.sender == owner, \" Not owner\");\n        _;\n    }\n\n    function mint(uint value) public payable OnlySender {\n        balances[owner] += value;\n    }\n\n    function mintTo(uint value, address to) public payable OnlySender {\n        balances[to] += value;\n        totalsupply += value;\n    }\n\n    function transfer(uint value, address to) public payable {\n        uint existingBalance = balances[msg.sender];\n        require(existingBalance >= value, \"Insufficient Balance\");\n        balances[to] += value;\n        balances[msg.sender] -= value;\n    }\n}\n",
+        "file": "Mytoken.sol"
+      }
+    }
+  }
+}
