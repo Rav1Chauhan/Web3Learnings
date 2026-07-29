@@ -533,7 +533,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"CreateToken.sol": "RaviCoin"
+			"CreateToken.sol": "MyToken"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -596,11 +596,11 @@
 			]
 		},
 		"CreateToken.sol": {
-			"keccak256": "0x846d49638a1c8c50dd031f90c63001fffb246ab8cb2e1185aca114a971d45b3c",
+			"keccak256": "0x8d4199fd4e54ea6c5158b9d8f4dfdbdeae36208bf54c4fcf4f09b85b2bf98f6f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c65dce61625d9da4fe1388208af7e1d5d3dabf472ccf39f34923301515b5d0a7",
-				"dweb:/ipfs/QmSzrBe3qmYbHpzokFDCUYCm7drMUrDDSN3rzPg9Bme26a"
+				"bzz-raw://6fa516d5e949c6610d46133ddcedef9dc92dd65affa48c7d792cae8d46f8580a",
+				"dweb:/ipfs/QmPCdPBu7pNA22yat6iun2ja3cYMPr1natKdDTmv6qvWad"
 			]
 		}
 	},
