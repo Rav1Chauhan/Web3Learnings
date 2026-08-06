@@ -108,5 +108,16 @@
   },
   "@openzeppelin/contracts@5.6.1/access/Ownable.sol": {
     "../utils/Context.sol": ".deps/npm/@openzeppelin/contracts@5.6.1/utils/Context.sol"
+  },
+  "marketplace.sol": {
+    "__sources__": {}
+  },
+  "SendMoneyExample.sol": {
+    "__sources__": {
+      "SendMoneyExample.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.15;\n\ncontract SendMoneyExample {\n    uint public balanceReceived;\n    function deposite() public payable {\n        balanceReceived += msg.value;\n    }\n    function getContractBalance() public view returns (uint) {\n        return address(this).balance;\n    }\n    function withdrawAll() public {\n        address payable to = payable(msg.sender);\n        to.transfer(getContractBalance());\n    }\n    function withdrawToAddress(address payable to) public {\n        to.transfer(getContractBalance());\n    }\n}\n",
+        "file": "SendMoneyExample.sol"
+      }
+    }
   }
 }
